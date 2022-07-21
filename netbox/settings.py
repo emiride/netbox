@@ -606,6 +606,14 @@ if TASKS_REDIS_USING_SENTINEL:
             'socket_connect_timeout': TASKS_REDIS_SENTINEL_TIMEOUT
         },
     }
+else if TASKS_REDIS_USING_SOCKET:
+    RQ_PARAMS = {
+        'HOST': TASKS_REDIS_HOST,
+        'PORT': TASKS_REDIS_PORT,
+        'DB': TASKS_REDIS_DATABASE,
+        'PASSWORD': TASKS_REDIS_PASSWORD,
+        'SOCKET_TIMEOUT': None,
+    }
 else:
     RQ_PARAMS = {
         'HOST': TASKS_REDIS_HOST,
